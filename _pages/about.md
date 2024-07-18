@@ -14,5 +14,5 @@ I am under the guidance of Arkaitz Zubiaga on the project: “Therapeutic target
 
 Beyond my academic research, I co-organize the DERI lunch and learn seminars in DERI. My broader research interests include understanding gene-disease associations and mechanisms for therpeutic purposes through language. My long term goal is to translate my research into accelerating actionable decision making for the drug discovery process.
 
-Feel free to reach out to me at pui.siu[AT]qmul.ac.uk.
+Please feel free to reach out to me at pui.siu[AT]qmul.ac.uk.
 
