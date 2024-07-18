@@ -12,21 +12,20 @@ redirect_from:
 Education
 ======
 * Ph.D in AI for Drug Discovery, Queen Mary University of London, Sept. 2023 - Present
-  * Electronic Engineering and Computer Science
-  * Target selection and prioritisation using prioritisation criteria and neuro-symbolic AI
-  * Novel target selection and prioritisation through collaborative filtering between gene-disease association using graph and word embedding
-  * Learning target prioritisation criteria with inductive logic programming for XAI
+  * Target identification and prioritisation using temporal text mining
+  * Incorporate collaborative filtering to recommend novel therapeutic drug target
+  * Learning target-disease mechanism of action through inductive logic programming and causal inference
 
 * M.Sc. in Bioinformatics, Wageningen University and Research, Sept. 2020 - Sept. 2022
   * Prediction of gene expression from local regulatory sequence using transformer and attention
   * Devised DNABERT-reg, a transformer encoder model to investigate genomic sequential features that affect gene expression level
   * Implemented interpretability techniques like attention, integrated-gradient, and SHAP to infer biologically relevant DNA motifs
 
-* B.Sc. in GitHub, GitHub University, 2012
+* B.Sc. in Biological science, University of Warwick, Sept.2017 - Sept. 2020
 
 Work experience
 ======
-* Feb. 2023 – Present: Junior Research Associate (Part-time)
+* Feb. 2023 – Present: Junior Research Associate
   * Queen Mary University of London, London, United Kingdom
   * Use deep learning for simulation of population genomics data to infer parameters of recent evolution of Anopheles populations, including temporal changes in population size and migration rate among different geographical locations
   * Software development and packaging of tools for publication
