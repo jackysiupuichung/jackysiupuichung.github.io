@@ -21,7 +21,7 @@ repository               : "jackysiupuichung.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "./images/Jacky photo.jng"
+  avatar           : "Jacky photo.jpg"
   name             : "Jacky Siu Pui Chung"
   pronouns         : # example: "He/him"  
   bio              : "Phd candidate working in domain such as AI and drug discovery and population genetics, focus on target identification and prioritisation through natural language processing and causal inference."
