@@ -263,7 +263,7 @@ defaults:
       comment: true
   # _talks
   - scope:
-      path: "_talks/2024-08-29-talk-1.md"
+      path: "/:collection/:_talks/2024-08-29-talk-1.md"
       type: talks
     values:
       layout: talk
