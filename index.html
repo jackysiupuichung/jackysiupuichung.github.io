@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jacky Siu Pui Chung</title>
+<meta name="description" content="Jacky Siu Pui Chung, PhD candidate at Queen Mary University of London working on AI for drug discovery: prospective novel target prioritisation and forecasting with large language models.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jacky Siu Pui Chung">
+<meta property="og:description" content="Jacky Siu Pui Chung, PhD candidate at Queen Mary University of London working on AI for drug discovery: prospective novel target prioritisation and forecasting with large language models.">
+<meta property="og:url" content="https://jackysiupuichung.github.io/">
+<meta property="og:image" content="https://jackysiupuichung.github.io/profile.jpg">
+<link rel="canonical" href="https://jackysiupuichung.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2317694F'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='white'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>
+/* Layout: sticky top bar; each section sets its title in a left gutter beside a ~46rem reading column, like a CV; the hero pairs the bio with a temporal evidence graph you can scrub by year. */
+:root{
+  --paper:#F4F6F4; --surface:#FFFFFF; --ink:#15201C; --muted:#56635E; --rule:#D6DED9; --soft:#E8EEEA;
+  --accent:#17694F; --accent-soft:#DCEBE3; --on-accent:#FFFFFF;
+  --display:"Newsreader","Iowan Old Style",Georgia,serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --s-xs:.8125rem; --s-sm:.9375rem; --s-md:1.0625rem; --s-lg:1.375rem;
+  --s-xl:clamp(1.6rem,1.2rem + 1.4vw,2.1rem); --s-hero:clamp(2.5rem,1.7rem + 3.2vw,3.7rem);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1311; --surface:#121A17; --ink:#E1E8E4; --muted:#93A29B; --rule:#24312C; --soft:#17211D;
+    --accent:#7CC3A6; --accent-soft:#1B3128; --on-accent:#0D1311; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1311; --surface:#121A17; --ink:#E1E8E4; --muted:#93A29B; --rule:#24312C; --soft:#17211D;
+  --accent:#7CC3A6; --accent-soft:#1B3128; --on-accent:#0D1311; color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--s-md)/1.6 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:inherit;text-decoration-color:color-mix(in srgb,var(--accent) 50%,transparent);text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+h1,h2,h3{text-wrap:balance}
+button{font:inherit;color:inherit;cursor:pointer}
+
+.wrap{max-width:70rem;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:48rem){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem 1.5rem;padding-block:.75rem}
+.brand{font:500 1.2rem/1 var(--display);text-decoration:none;margin-right:auto}
+.nav{display:flex;gap:1.15rem;overflow-x:auto;scrollbar-width:none;font-size:var(--s-sm);color:var(--muted);min-width:0}
+.nav::-webkit-scrollbar{display:none}
+.nav a{text-decoration:none;white-space:nowrap;padding-block:.2rem}
+.nav a:hover{color:var(--ink)}
+.theme-btn{display:inline-grid;place-items:center;width:2rem;height:2rem;border:1px solid var(--rule);border-radius:50%;background:var(--surface);color:var(--muted)}
+.theme-btn:hover{color:var(--ink);border-color:var(--muted)}
+@media (max-width:47.99rem){.nav{order:3;flex-basis:100%}}
+
+/* Hero */
+.hero{display:grid;gap:1.5rem;padding-block:3rem 3.5rem}
+@media (min-width:60rem){.hero{grid-template-columns:minmax(0,1fr) auto;gap:4rem;padding-block:4.5rem 4rem;align-items:start}}
+.portrait{display:block;width:9rem;height:9rem;border-radius:50%;object-fit:cover;object-position:50% 18%;border:1px solid var(--rule)}
+@media (min-width:60rem){.portrait{grid-column:2;grid-row:1;width:14rem;height:14rem;margin-top:.4rem}}
+.eyebrow{font:500 var(--s-xs)/1.45 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0}
+h1{font:400 var(--s-hero)/1.04 var(--display);letter-spacing:-.015em;margin:1.4rem 0 .7rem}
+.role{margin:0 0 1.3rem;font-size:var(--s-md)}
+.role span{color:var(--muted)}
+.bio p{margin:0 0 .9rem;max-width:36rem}
+.links{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;font:500 var(--s-sm)/1 var(--body);padding:.6rem .85rem;border:1px solid var(--rule);border-radius:3px;background:var(--surface);color:var(--ink);text-decoration:none}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.sm{font:400 var(--s-xs)/1 var(--mono);padding:.42rem .6rem}
+
+/* Sections */
+.sec{display:grid;gap:1.1rem 3rem;padding-block:3rem;border-top:1px solid var(--rule);scroll-margin-top:4.5rem}
+@media (min-width:60rem){.sec{grid-template-columns:12.5rem minmax(0,1fr);padding-block:3.75rem}.sec-h{position:sticky;top:5.5rem;align-self:start}}
+.sec-h h2{font:400 var(--s-xl)/1.15 var(--display);letter-spacing:-.01em;margin:0}
+.sec-h p{margin:.45rem 0 0;font:var(--s-xs)/1.5 var(--mono);color:var(--muted)}
+.sec-b{min-width:0;max-width:46rem}
+.sec-b h3.label{font:500 var(--s-xs)/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 .75rem}
+
+.news{list-style:none;margin:0;padding:0}
+.news li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1rem;padding-block:.7rem;border-bottom:1px solid var(--rule)}
+.news li:first-child{padding-top:0}
+.news time,.tl time{font:var(--s-xs)/1.95 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+
+.themes{display:grid;gap:1.6rem}
+.themes h3{font:500 var(--s-lg)/1.25 var(--display);margin:0 0 .35rem}
+.themes p{margin:0}
+.thesis{margin-top:2rem;padding:1rem 1.15rem;background:var(--soft);border-radius:4px;font-size:var(--s-sm)}
+.thesis .eyebrow{margin-bottom:.35rem}
+.thesis q{font:italic 400 1.1rem/1.4 var(--display);quotes:none}
+
+.pub{display:grid;gap:.45rem;padding-block:1.4rem;border-bottom:1px solid var(--rule)}
+.pub:first-child{padding-top:0}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .75rem;font:var(--s-xs)/1.4 var(--mono);color:var(--muted)}
+.chip{display:inline-block;font:500 .7rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:.3rem .45rem;border-radius:2px;border:1px solid currentColor}
+.chip.ok{color:var(--accent);background:var(--accent-soft);border-color:transparent}
+.chip.wip{color:var(--muted);border-style:dashed}
+.pub h3{font:400 var(--s-lg)/1.3 var(--display);margin:0}
+.pub h3 a{text-decoration:none}
+.pub h3 a:hover{text-decoration:underline}
+.authors{margin:0;font-size:var(--s-sm);color:var(--muted)}
+.authors b{color:var(--ink);font-weight:600}
+.venue{margin:0;font:italic 400 1.02rem/1.4 var(--display)}
+.actions{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.3rem}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,19rem),1fr));gap:1rem}
+.card{display:flex;flex-direction:column;gap:.5rem;padding:1.1rem 1.15rem 1.15rem;background:var(--surface);border:1px solid var(--rule);border-radius:4px;min-width:0}
+.card h3{font:500 var(--s-lg)/1.2 var(--display);margin:0}
+.card p{margin:0;font-size:var(--s-sm)}
+.tags{display:flex;flex-wrap:wrap;gap:.25rem .7rem;font:var(--s-xs)/1.45 var(--mono);color:var(--muted)}
+.card .actions{margin-top:auto;padding-top:.45rem}
+.grid.quiet .card{background:var(--soft);border-color:transparent}
+
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;gap:.2rem 1.25rem;padding-block:1.15rem;border-bottom:1px solid var(--rule)}
+.tl li:first-child{padding-top:0}
+@media (min-width:40rem){.tl li{grid-template-columns:8.5rem minmax(0,1fr)}}
+.tl h3{font:500 1.18rem/1.3 var(--display);margin:0}
+.tl .org{margin:.1rem 0 .45rem;font-size:var(--s-sm);color:var(--muted)}
+.tl p{margin:0;font-size:var(--s-sm)}
+
+.cred{display:grid;gap:2.25rem}
+.deg{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.deg li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.1rem 1rem}
+.deg strong{font:500 1.15rem/1.3 var(--display)}
+.deg time{font:var(--s-xs)/2 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.deg span{grid-column:1/-1;font-size:var(--s-sm);color:var(--muted)}
+.fund{margin:0;padding:0;list-style:none;display:grid;gap:.5rem;font-size:var(--s-sm)}
+.skills{display:grid;gap:.6rem;margin:0}
+.skills div{display:grid;gap:.2rem 1rem}
+@media (min-width:40rem){.skills div{grid-template-columns:8.5rem minmax(0,1fr)}}
+.skills dt{font:var(--s-xs)/1.9 var(--mono);color:var(--muted)}
+.skills dd{margin:0;font-size:var(--s-sm)}
+
+
+.contact-line{font:400 var(--s-xl)/1.25 var(--display);margin:0 0 1.1rem}
+.email{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+.email code{font:var(--s-md)/1.4 var(--mono);padding:.45rem .65rem;background:var(--soft);border-radius:3px;user-select:all;overflow-wrap:anywhere}
+.social{list-style:none;margin:1.75rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,13rem),1fr));gap:0 1.5rem}
+.social a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-block:.65rem;border-bottom:1px solid var(--rule);text-decoration:none}
+.social span{font:var(--s-xs)/1 var(--mono);color:var(--muted)}
+
+.filter{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.filter button{font:500 var(--s-xs)/1 var(--mono);padding:.45rem .7rem;border:1px solid var(--rule);border-radius:999px;background:transparent;color:var(--muted)}
+.filter button span{margin-left:.4rem;opacity:.7;font-variant-numeric:tabular-nums}
+.filter button:hover{color:var(--ink);border-color:var(--muted)}
+.filter button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.dense{list-style:none;margin:0;padding:0}
+.dense li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.3rem .75rem;align-items:baseline;padding-block:.6rem;border-bottom:1px solid var(--rule)}
+.dense .yr{display:block;padding-block:1rem .4rem;font:500 var(--s-xs)/1 var(--mono);letter-spacing:.08em;color:var(--ink)}
+.dense .yr:first-child{padding-top:0}
+.dense time{font:var(--s-xs)/1.6 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.kind{justify-self:start;font:500 .66rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:.25rem .4rem;border-radius:2px;border:1px solid var(--muted);color:var(--ink)}
+.kind.talk{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+.dense-main{grid-column:1/-1;min-width:0;display:grid;gap:.1rem}
+.dense-title{font:500 1.04rem/1.3 var(--display)}
+.dense-venue{font-size:var(--s-xs);line-height:1.45;color:var(--muted)}
+.dense-also{font-size:var(--s-xs);line-height:1.45;color:var(--muted)}
+.dense-also b{font:500 .66rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-right:.45rem}
+.dense li[id]{scroll-margin-top:4.5rem}
+.locked{align-self:center;font:500 .66rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:.35rem .5rem;border:1px solid var(--rule);border-radius:2px;white-space:nowrap}
+.dense-links{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.3rem}
+@media (min-width:48rem){
+  .dense li{grid-template-columns:4.6rem 3.9rem minmax(0,1fr) auto;gap:.75rem}
+  .dense-main,.dense-links{grid-column:auto}
+  .dense-links{justify-content:flex-end}
+}
+
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 1.5rem;padding-block:2rem 2.75rem;border-top:1px solid var(--rule);font:var(--s-xs)/1.5 var(--mono);color:var(--muted)}
+
+/* Publication detail */
+.detail{max-width:46rem;padding-block:2.5rem 4.5rem}
+.back{font:var(--s-xs)/1 var(--mono);color:var(--muted);text-decoration:none}
+.detail .meta{margin-top:1.75rem}
+.detail h1{font-size:clamp(1.9rem,1.3rem + 2vw,2.75rem);line-height:1.15;margin:.9rem 0 1rem}
+.detail .authors{font-size:var(--s-md)}
+.detail .venue{margin-top:.35rem}
+.detail .actions{margin-top:1.25rem}
+.detail h2{font:500 var(--s-lg)/1.3 var(--display);margin:2.5rem 0 .7rem;padding-top:1.4rem;border-top:1px solid var(--rule)}
+.detail p{margin:0 0 .9rem}
+.res{list-style:none;margin:0;padding:0}
+.res li{display:flex;justify-content:space-between;gap:1rem;padding-block:.6rem;border-bottom:1px solid var(--rule)}
+.res span{font:var(--s-xs)/1.9 var(--mono);color:var(--muted);text-align:right}
+pre.bib{margin:0;overflow-x:auto;background:var(--soft);border-radius:4px;padding:1rem 1.1rem;font:.8125rem/1.65 var(--mono);color:var(--ink)}
+.bib-bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.6rem}
+
+dialog{border:1px solid var(--rule);border-radius:6px;background:var(--surface);color:var(--ink);padding:1.25rem;width:min(40rem,calc(100vw - 32px));max-height:calc(100dvh - 48px)}
+dialog::backdrop{background:color-mix(in srgb,var(--ink) 35%,transparent)}
+dialog h2{font:500 var(--s-lg)/1.2 var(--display);margin:0}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">Jacky Siu</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#news">News</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#talks">Talks</a><a href="#credentials">Credentials</a><a href="#beyond">Beyond research</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-btn" id="theme" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="home" class="wrap">
+  <section class="hero" aria-labelledby="name">
+    <img class="portrait" src="profile.jpg" alt="Jacky Siu Pui Chung" width="224" height="224">
+    <div>
+      <p class="eyebrow">AI for drug discovery<br>Target prioritisation · LLM forecasting</p>
+      <h1 id="name">Jacky Siu Pui Chung</h1>
+      <p class="role">PhD candidate <span>·</span> <a href="https://www.qmul.ac.uk/">Queen Mary University of London</a></p>
+      <div class="bio">
+        <p>I work on early-stage drug target discovery, prioritising novel targets before they reach the clinic. I test whether large language models can generate hypotheses that genuinely forecast clinical outcomes rather than recall them, scoring every model only on what was known when each decision was made.</p>
+        <p>I am supervised by Arkaitz Zubiaga, Claudia Cabrera and Mani Mudaliar, and funded by UKRI BBSRC through the AI for Drug Discovery Doctoral Training Programme, with Recursion as industrial partner.</p>
+      </div>
+      <div class="links">
+        <a class="btn" href="https://github.com/jackysiupuichung">GitHub ↗</a>
+        <a class="btn" href="https://huggingface.co/datasets/jspc00012567/THBKG">Hugging Face ↗</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=jGBMDN4AAAAJ&amp;hl=en">Google Scholar ↗</a>
+        <a class="btn" href="https://orcid.org/0009-0008-4956-1358">ORCID ↗</a>
+        <a class="btn" href="https://www.linkedin.com/in/pui-chung-siu-6960b11a4/">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="news">
+    <div class="sec-h"><h2>News</h2><p>Highlights</p></div>
+    <div class="sec-b">
+      <ul class="news">
+        <li><time datetime="2026-10">Oct 2026</time><span>Gave an <a href="#talks">invited talk</a> at Pheiron, Berlin.</span></li>
+        <li><time datetime="2026-09">Sep 2026</time><span>Gave a <a href="#talk-wcs">talk</a> at Target Validation in the Era of Genomics, Big Data and AI, Wellcome Genome Campus, Hinxton.</span></li>
+        <li><time datetime="2026-08">Aug 2026</time><span>Posted the <a href="#pub-thbkg">THBKG preprint</a> on arXiv, with the <a href="https://huggingface.co/datasets/jspc00012567/THBKG">dataset</a> on Hugging Face under CC-BY-4.0.</span></li>
+        <li><time datetime="2026-05">May 2026</time><span><a href="#pub-g3-malaria">Paper on generative models for demographic inference in malaria vectors</a> published in G3.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="research">
+    <div class="sec-h"><h2>Research</h2><p>Current interests</p></div>
+    <div class="sec-b">
+      <div class="themes">
+        <div>
+          <h3>Prospective novel target prioritisation</h3>
+          <p>Ranking target–disease pairs by their chance of entering or advancing in the clinic, with a focus on novel targets that have little direct evidence yet. Models see only evidence dated before each decision, and are tested on whether they beat simpler baselines when evaluated forward in time.</p>
+        </div>
+        <div>
+          <h3>Hypothesis generation with LLMs for forecasting</h3>
+          <p>Using large language models to propose and rank therapeutic hypotheses, and testing whether they genuinely forecast or only recall: each model is scored on outcomes after its training cutoff, with retrieved evidence limited to what was published before the decision date.</p>
+        </div>
+        <div>
+          <h3>Machine learning for genomics</h3>
+          <p>Generative adversarial networks for demographic inference in <i>Anopheles</i> mosquitoes, benchmarks for single-cell foundation models on perturbation prediction, and transformer models that predict gene expression from regulatory DNA sequence.</p>
+        </div>
+      </div>
+      <div class="thesis">
+        <p class="eyebrow">Thesis project</p>
+        <q>Temporal Evidence in Target Discovery: Leveraging Longitudinal Biomedical Knowledge for Novel Therapeutic Target Prioritisation</q>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="publications">
+    <div class="sec-h"><h2>Publications</h2></div>
+    <div class="sec-b">
+      <article class="pub">
+        <div class="meta"><span>2026 · Preprint</span><span class="chip wip">arXiv</span></div>
+        <h3><a href="#pub-thbkg">THBKG: A Temporal Biomedical Knowledge Graph for Decision-Aligned Clinical Advancement Prediction</a></h3>
+        <p class="authors"><b>Siu P. C.</b>, Cabrera C., Mudaliar M., Zubiaga A.</p>
+        <p class="venue">arXiv:2608.05982 [cs.LG]</p>
+        <div class="actions">
+          <a class="btn sm" href="https://arxiv.org/abs/2608.05982">arXiv ↗</a>
+          <a class="btn sm" href="https://huggingface.co/datasets/jspc00012567/THBKG">Dataset ↗</a>
+          <a class="btn sm" href="https://github.com/jackysiupuichung/THBKG">Code ↗</a>
+          <a class="btn sm" href="#pub-thbkg">Details</a>
+          <button class="btn sm" type="button" data-cite="pub-thbkg">Cite</button>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="meta"><span>2026 · Journal article</span><span class="chip ok">G3</span></div>
+        <h3><a href="#pub-g3-malaria">On the use of generative models for demographic inference in malaria vectors from genomic data</a></h3>
+        <p class="authors">Eneli A. A., <b>Siu P. C.</b>, Perez M. F., Burt A., Fumagalli M., Mathieson S.</p>
+        <p class="venue">G3: Genes | Genomes | Genetics, 16(7), jkag114</p>
+        <div class="actions">
+          <a class="btn sm" href="https://doi.org/10.1093/g3journal/jkag114">DOI ↗</a>
+          <a class="btn sm" href="#pub-g3-malaria">Details</a>
+          <button class="btn sm" type="button" data-cite="pub-g3-malaria">Cite</button>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="meta"><span>2025 · Conference paper</span><span class="chip ok">ICML</span></div>
+        <h3><a href="#pub-perteval">PertEval-scFM: Benchmarking Single-Cell Foundation Models for Perturbation Effect Prediction</a></h3>
+        <p class="authors">Wenteler A., Occhetta M., Branson N., Curean V., Huebner M., Dee W., Connell W., <b>Siu P. C.</b>, Hawkins-Hooker A., Ektefaie Y., Valdez Córdova C. M., Gallagher-Syed A.</p>
+        <p class="venue">Proceedings of the 42nd International Conference on Machine Learning (ICML 2025), PMLR 267</p>
+        <div class="actions">
+          <a class="btn sm" href="https://raw.githubusercontent.com/mlresearch/v267/main/assets/wenteler25a/wenteler25a.pdf">PDF ↗</a>
+          <a class="btn sm" href="https://github.com/aaronwtr/PertEval">Code ↗</a>
+          <a class="btn sm" href="https://openreview.net/forum?id=t04D9bkKUq">OpenReview ↗</a>
+          <a class="btn sm" href="#pub-perteval">Details</a>
+          <button class="btn sm" type="button" data-cite="pub-perteval">Cite</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="projects">
+    <div class="sec-h"><h2>Projects</h2><p>Software, datasets and hackathon builds</p></div>
+    <div class="sec-b">
+      <div class="grid">
+        <article class="card">
+          <p class="eyebrow">Dataset · CC-BY-4.0</p>
+          <h3>THBKG</h3>
+          <p>A dated biomedical knowledge graph built from Open Targets 26.09 and linked sources, with a benchmark that ranks Phase II target–disease pairs by their likelihood of reaching Phase III.</p>
+          <div class="tags"><span>knowledge graphs</span><span>benchmark</span><span>Open Targets</span></div>
+          <div class="actions"><a class="btn sm" href="https://github.com/jackysiupuichung/THBKG">Code ↗</a><a class="btn sm" href="https://huggingface.co/datasets/jspc00012567/THBKG">Dataset ↗</a><a class="btn sm" href="#pub-thbkg">Paper</a></div>
+        </article>
+        <article class="card">
+          <p class="eyebrow">Hackathon · Jun 2026</p>
+          <h3>Virtual Biotech Scientist</h3>
+          <p>Tests whether an AI scientist can decide deterministically if the biological evidence behind a target-prioritisation claim is enough to support it. Agents gather evidence through ToolUniverse, with Claude for reasoning, and competing hypotheses are ranked in an arena.</p>
+          <div class="tags"><span>evidence sufficiency</span><span>multi-agent</span><span>8 stars</span></div>
+          <div class="actions"><a class="btn sm" href="https://github.com/jackysiupuichung/virtual-biotech-scientist">Code ↗</a><a class="btn sm" href="https://frombenchtobreakthrough.substack.com/p/i-built-a-virtual-biotech-scientist">Write-up ↗</a></div>
+        </article>
+        <article class="card">
+          <p class="eyebrow">Hackathon · Jun 2026</p>
+          <h3>Virtual Biotech CSO</h3>
+          <p>An orchestrator, four scientist divisions working over live public databases, and a reviewer panel that sends work back. The go/no-go verdict is derived from cited evidence.</p>
+          <div class="tags"><span>Multiagents Hackathon</span><span>Tessl AI, London</span></div>
+          <div class="actions"><a class="btn sm" href="https://github.com/jackysiupuichung/virtual-biotech-agents">Code ↗</a></div>
+        </article>
+        <article class="card">
+          <p class="eyebrow">Hackathon · Jul 2026 · 36 h</p>
+          <h3>Cadence</h3>
+          <p>A patient-side care companion with longitudinal memory. It captures the consultation with ambient voice AI, then follows the care plan with voice check-ins in the weeks after.</p>
+          <div class="tags"><span>Juno × Anthropic</span><span>voice agents</span></div>
+          <div class="actions"><a class="btn sm" href="https://github.com/jackysiupuichung/juno_hack_cadenceai">Code ↗</a></div>
+        </article>
+        <article class="card">
+          <p class="eyebrow">Side project</p>
+          <h3>ClearVoice</h3>
+          <p>Public speaking and interview practice for people with Tourette syndrome. A tic-free voice relay passes on only the sentence the speaker intended.</p>
+          <div class="tags"><span>speech</span><span>accessibility</span></div>
+          <div class="actions"><a class="btn sm" href="https://github.com/jackysiupuichung/voice_agent_tourette">Code ↗</a></div>
+        </article>
+        <article class="card">
+          <p class="eyebrow">MSc thesis · 2022</p>
+          <h3>DNABERT-reg</h3>
+          <p>Predicts gene expression from local regulatory sequence with a transformer, then uses attention, integrated gradients and SHAP to recover biologically relevant DNA motifs.</p>
+          <div class="tags"><span>genomics</span><span>transformers</span><span>Wageningen</span></div>
+          <div class="actions"><a class="btn sm" href="https://github.com/jackysiupuichung/dnabert-reg">Code ↗</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="experience">
+    <div class="sec-h"><h2>Experience</h2><p>Industry and research roles</p></div>
+    <div class="sec-b">
+      <ul class="tl">
+        <li>
+          <time>Summer 2025</time>
+          <div>
+            <h3>PhD Intern</h3>
+            <p class="org"><a href="https://www.bactobio.com/">Bactobio</a> · London · 3 months</p>
+            <p>Applied DNA language models and biological foundation models to microbial sequencing data to build a recommendation engine for microbial generation. Added uncertainty estimates with Bayesian neural networks and contributed to the experiment-in-the-loop platform.</p>
+          </div>
+        </li>
+        <li>
+          <time>Feb 2023</time>
+          <div>
+            <h3>Junior Research Associate</h3>
+            <p class="org">Queen Mary University of London</p>
+            <p>Used deep learning on simulated population genomics data to infer recent demographic history of <i>Anopheles</i> populations, including changes in population size and migration between locations. Packaged the tools for publication.</p>
+          </div>
+        </li>
+        <li>
+          <time>Apr – Sep 2022</time>
+          <div>
+            <h3>Bioinformatics Genetics Intern</h3>
+            <p class="org">Dümmen Orange · De Lier, Netherlands</p>
+            <p>Built a genotype imputation framework for polyploid plants that raised genomic selection resolution and reduced sequencing cost, and packaged it in Docker for the company's genotyping pipeline.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="talks">
+    <div class="sec-h"><h2>Talks &amp; posters</h2></div>
+    <div class="sec-b">
+      <div class="filter" role="group" aria-label="Show talks or posters">
+        <button type="button" aria-pressed="true" data-kind="all">All<span>5</span></button>
+        <button type="button" aria-pressed="false" data-kind="talk">Talks<span>4</span></button>
+        <button type="button" aria-pressed="false" data-kind="poster">Posters<span>1</span></button>
+      </div>
+      <!-- One row per presentation, dated by its first outing. A straight repeat goes on an "Also given" line;
+           a talk that merges earlier ones gets its own row with a "Combines" line linking back to them -->
+      <ol class="dense">
+        <li class="yr">2026</li>
+        <li data-kind="talk">
+          <time datetime="2026-10-30">30 Oct</time>
+          <span class="kind talk">Talk</span>
+          <div class="dense-main">
+            <span class="dense-title">Towards designing a Temporal Evaluation Harness for Target Identification</span>
+            <span class="dense-venue">Invited talk · Pheiron, Berlin</span>
+            <span class="dense-also"><b>Combines</b><a href="#talk-aixbio">AI x BIO talk</a> + <a href="#talk-wcs">Target Validation talk</a></span>
+          </div>
+          <div class="dense-links"><a class="btn sm" href="#pub-thbkg">Paper</a><span class="locked" title="Slides are not shared publicly">Proprietary</span></div>
+        </li>
+        <li data-kind="poster">
+          <time datetime="2026-09-29">29 Sep</time>
+          <span class="kind">Poster</span>
+          <div class="dense-main">
+            <span class="dense-title">THBKG: A Temporal Evaluation Harness for Target Identification</span>
+            <span class="dense-venue">Computational Biology Symposium · Francis Crick Institute, London</span>
+          </div>
+          <div class="dense-links"><a class="btn sm" href="#pub-thbkg">Paper</a><a class="btn sm" href="posters/siu-2026-crick-thbkg-poster.pdf">Poster ↗</a></div>
+        </li>
+        <li data-kind="talk" id="talk-wcs">
+          <time datetime="2026-09-22">22 Sep</time>
+          <span class="kind talk">Talk</span>
+          <div class="dense-main">
+            <span class="dense-title">Did the Model Forecast It, or Already Know It? Evaluating Large Language Models for Novel Drug-Target Prioritisation with a Temporal Biomedical Knowledge-Graph Oracle</span>
+            <span class="dense-venue">Target Validation in the Era of Genomics, Big Data and AI · Wellcome Connecting Science, Hinxton · AI for precision medicine session</span>
+          </div>
+          <div class="dense-links"><a class="btn sm" href="slides/siu-2026-wellcome-target-validation.pdf">Slides ↗</a></div>
+        </li>
+        <li data-kind="talk" id="talk-aixbio">
+          <time datetime="2026-06-09">9 Jun</time>
+          <span class="kind talk">Talk</span>
+          <div class="dense-main">
+            <span class="dense-title">A Temporal Heterogeneous Biomedical Knowledge Graph for Quasi-Prospective Clinical Trial Advancement Prediction</span>
+            <span class="dense-venue">AI x BIO 2026 · Wellcome Genome Campus, Hinxton · Solving chemistry and therapeutics</span>
+          </div>
+          <div class="dense-links"><a class="btn sm" href="#pub-thbkg">Paper</a><a class="btn sm" href="slides/siu-2026-aixbio-thbkg.pdf">Slides ↗</a></div>
+        </li>
+        <li class="yr">2024</li>
+        <li data-kind="talk">
+          <time datetime="2024-08-29">29 Aug</time>
+          <span class="kind talk">Talk</span>
+          <div class="dense-main">
+            <span class="dense-title">Pg-Gan-Mosquito: demographic inference of <i>Anopheles</i> mosquitoes to measure the spread of resistance mutations</span>
+            <span class="dense-venue">Queen Mary University of London</span>
+          </div>
+          <div class="dense-links"><a class="btn sm" href="#pub-g3-malaria">Paper</a></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="credentials">
+    <div class="sec-h"><h2>Credentials</h2><p>Degrees, funding and skills</p></div>
+    <div class="sec-b cred">
+      <div>
+        <h3 class="label">Education</h3>
+        <ul class="deg">
+          <li><strong>PhD, AI for Drug Discovery</strong><time>2023 –</time><span>Queen Mary University of London · supervised by Arkaitz Zubiaga, Claudia Cabrera and Mani Mudaliar</span></li>
+          <li><strong>MSc, Bioinformatics</strong><time>2020 – 2022</time><span>Wageningen University &amp; Research · thesis on transformer models of gene regulation (DNABERT-reg)</span></li>
+          <li><strong>BSc, Biological Sciences</strong><time>2017 – 2020</time><span>University of Warwick</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="label">Funding</h3>
+        <ul class="fund">
+          <li>UKRI BBSRC doctoral studentship, AI for Drug Discovery Doctoral Training Programme (UKRI-AIDD)</li>
+          <li>Industrial partner: Recursion Pharmaceuticals</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="label">Skills</h3>
+        <dl class="skills">
+          <div><dt>Languages</dt><dd>Python, R, SQL, Unix shell</dd></div>
+          <div><dt>Machine learning</dt><dd>PyTorch, graph neural networks, transformers and LLMs, GANs, Bayesian neural networks, causal inference</dd></div>
+          <div><dt>Tooling</dt><dd>Git, Docker, Nextflow</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="beyond">
+    <div class="sec-h"><h2>Beyond research</h2><p>Hobbies and community</p></div>
+    <div class="sec-b">
+      <div class="grid quiet">
+        <article class="card">
+          <h3>Hackathons</h3>
+          <p>Weekend builds with multi-agent systems and voice AI, most recently at the Multiagents Hackathon and the Juno × Anthropic healthcare hackathon in London.</p>
+          <div class="actions"><a class="btn sm" href="#projects">See projects</a></div>
+        </article>
+        <article class="card">
+          <h3>Writing</h3>
+          <p>From Bench to Breakthrough, a Substack on building AI for drug discovery, starting with a weekend spent building a virtual biotech scientist.</p>
+          <div class="actions"><a class="btn sm" href="https://frombenchtobreakthrough.substack.com/">Substack ↗</a></div>
+        </article>
+        <article class="card">
+          <h3>Community</h3>
+          <p>Co-organiser of the bi-weekly DERI lunch-and-learn seminar at Queen Mary.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="sec-h"><h2>Contact</h2><p>London, United Kingdom</p></div>
+    <div class="sec-b">
+      <p class="contact-line">Happy to talk about target discovery, temporal evaluation, or a collaboration.</p>
+      <div class="email">
+        <code id="email-text">pui.siu@qmul.ac.uk</code>
+        <button class="btn sm" id="copy-email" type="button">Copy email</button>
+      </div>
+      <ul class="social">
+        <li><a href="https://github.com/jackysiupuichung">GitHub <span>jackysiupuichung</span></a></li>
+        <li><a href="https://www.linkedin.com/in/pui-chung-siu-6960b11a4/">LinkedIn <span>Pui Chung Siu</span></a></li>
+        <li><a href="https://scholar.google.com/citations?user=jGBMDN4AAAAJ&amp;hl=en">Google Scholar <span>Pui Chung Siu</span></a></li>
+        <li><a href="https://orcid.org/0009-0008-4956-1358">ORCID <span>0009-0008-4956-1358</span></a></li>
+        <li><a href="https://huggingface.co/jspc00012567">Hugging Face <span>jspc00012567</span></a></li>
+        <li><a href="https://frombenchtobreakthrough.substack.com/">Substack <span>Bench to Breakthrough</span></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<main id="detail" class="wrap" hidden>
+  <article class="detail">
+    <a class="back" href="#publications">← All publications</a>
+    <div class="meta" id="d-meta"></div>
+    <h1 id="d-title"></h1>
+    <p class="authors" id="d-authors"></p>
+    <p class="venue" id="d-venue"></p>
+    <div class="actions" id="d-actions"></div>
+    <h2 id="d-sum-h">Summary</h2>
+    <p id="d-summary"></p>
+    <div id="d-res-wrap">
+      <h2>Resources</h2>
+      <ul class="res" id="d-res"></ul>
+    </div>
+    <h2>Cite</h2>
+    <div class="bib-bar"><span class="eyebrow">BibTeX</span><button class="btn sm" type="button" id="d-copy">Copy BibTeX</button></div>
+    <pre class="bib" id="d-bib"></pre>
+  </article>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><span>© 2026 Jacky Siu Pui Chung · Updated Nov 2026</span><a href="#">Back to top ↑</a></div>
+</footer>
+
+<dialog id="cite">
+  <div class="bib-bar"><h2>Cite</h2><button class="btn sm" type="button" id="cite-close">Close</button></div>
+  <pre class="bib" id="cite-bib"></pre>
+  <div class="actions" style="margin-top:.8rem"><button class="btn sm" type="button" id="cite-copy">Copy BibTeX</button></div>
+</dialog>
+
+<script>
+const PUBS = {
+  "pub-g3-malaria": {
+    meta: "2026 / Journal article", ok: true, status: "Published",
+    title: "On the use of generative models for demographic inference in malaria vectors from genomic data",
+    authors: "Eneli A. A., <b>Siu P. C.</b>, Perez M. F., Burt A., Fumagalli M., Mathieson S.",
+    venue: "G3: Genes | Genomes | Genetics, 16(7), jkag114, 2026",
+    links: [["DOI ↗", "https://doi.org/10.1093/g3journal/jkag114"]],
+    summary: "Adapts a generative adversarial network (pg-gan-mosquito) to infer the demographic histories of malaria-vector mosquito populations from Guinea and Burkina Faso, and adds a machine-learning approach for choosing between demographic scenarios with and without migration after the populations split.",
+    res: [["Journal article", "https://doi.org/10.1093/g3journal/jkag114", "doi:10.1093/g3journal/jkag114"], ["bioRxiv preprint", "https://doi.org/10.1101/2025.06.26.661760", "2025"], ["Talk at Queen Mary", "#talks", "29 Aug 2024"]],
+    bib: "@article{eneli2026generative,\n  title   = {On the use of generative models for demographic inference\n             in malaria vectors from genomic data},\n  author  = {Eneli, Amelia Adibe and Siu, Pui Chung and Perez, Manolo F. and\n             Burt, Austin and Fumagalli, Matteo and Mathieson, Sara},\n  journal = {G3: Genes, Genomes, Genetics},\n  volume  = {16},\n  number  = {7},\n  pages   = {jkag114},\n  year    = {2026},\n  doi     = {10.1093/g3journal/jkag114}\n}"
+  },
+  "pub-thbkg": {
+    meta: "2026 / Preprint", ok: false, status: "arXiv",
+    title: "THBKG: A Temporal Biomedical Knowledge Graph for Decision-Aligned Clinical Advancement Prediction",
+    authors: "<b>Siu P. C.</b>, Cabrera C., Mudaliar M., Zubiaga A.",
+    venue: "arXiv:2608.05982 [cs.LG], 6 Aug 2026",
+    links: [["arXiv ↗", "https://arxiv.org/abs/2608.05982"], ["Dataset ↗", "https://huggingface.co/datasets/jspc00012567/THBKG"], ["Code ↗", "https://github.com/jackysiupuichung/THBKG"]],
+    sumLabel: "Abstract",
+    summary: "Inadequate target–disease linkage accounts for 40–50% of Phase II efficacy failures, so anticipating which programmes will advance would let sponsors back the hypotheses most likely to reach patients. What a programme can be judged on is the evidence that supported its linkage when it entered the clinic. No existing biomedical knowledge graph allows that evidence profile to be assembled as of a past date. We present the Temporal Heterogeneous Biomedical Knowledge Graph (THBKG), which describes and predicts therapeutic target–disease links through time: 110,396 entities and 11.1M edges across nineteen relation types, each edge carrying the year its evidence changed, so a pair's profile can be recovered as it stood when its own decision fell due. On this graph we define a decision-aligned benchmark that predicts, for a target–disease pair entering Phase II, whether it advances to Phase III on evidence datable before that decision. Graph propagation over the THBKG outranks every direct-evidence reference scored under the same decision-aligned protocol, reaching a relative success of 4.3–4.5 at the top ten pairs per therapeutic area. The gain concentrates on the 72.8% of pairs with no direct target–disease evidence at their decision point, where a direct-edge model has nothing to read: the encoders still rank five- to sixfold above chance, recovering the signal by propagating over the intervening biology. Adapting a path-based explainer to the decision-time subgraph decomposes each prediction into the evidence landscape behind the hypothesis for explainable prediction. We release the THBKG as a continually updated substrate for studying therapeutic target hypotheses by retrospective validation.",
+    res: [["THBKG dataset", "https://huggingface.co/datasets/jspc00012567/THBKG", "Hugging Face · CC-BY-4.0"], ["Code and loader", "https://github.com/jackysiupuichung/THBKG", "GitHub"], ["Software archive", "https://doi.org/10.5281/zenodo.20795231", "Zenodo · v26.09"], ["AI x BIO 2026 slides", "slides/siu-2026-aixbio-thbkg.pdf", "Talk · 9 Jun 2026"], ["Crick symposium poster", "posters/siu-2026-crick-thbkg-poster.pdf", "Poster · 29 Sep 2026"]],
+    bib: "@misc{siu2026thbkg,\n  title         = {{THBKG}: A Temporal Biomedical Knowledge Graph for\n                   Decision-Aligned Clinical Advancement Prediction},\n  author        = {Siu, Pui Chung and Cabrera, Claudia and Mudaliar, Mani and\n                   Zubiaga, Arkaitz},\n  year          = {2026},\n  eprint        = {2608.05982},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.LG},\n  doi           = {10.48550/arXiv.2608.05982}\n}"
+  },
+  "pub-perteval": {
+    meta: "2025 / Conference paper", ok: true, status: "ICML 2025",
+    title: "PertEval-scFM: Benchmarking Single-Cell Foundation Models for Perturbation Effect Prediction",
+    authors: "Wenteler A., Occhetta M., Branson N., Curean V., Huebner M., Dee W., Connell W., <b>Siu P. C.</b>, Hawkins-Hooker A., Ektefaie Y., Valdez Córdova C. M., Gallagher-Syed A.",
+    venue: "Proceedings of the 42nd International Conference on Machine Learning (ICML 2025), PMLR 267: 66633–66677",
+    links: [["PDF ↗", "https://raw.githubusercontent.com/mlresearch/v267/main/assets/wenteler25a/wenteler25a.pdf"], ["Code ↗", "https://github.com/aaronwtr/PertEval"], ["OpenReview ↗", "https://openreview.net/forum?id=t04D9bkKUq"]],
+    sumLabel: "Abstract",
+    summary: "In silico modeling of transcriptional responses to perturbations is crucial for advancing our understanding of cellular processes and disease mechanisms. We present PertEval-scFM, a standardized framework designed to evaluate models for perturbation effect prediction. We apply PertEval-scFM to benchmark zero-shot single-cell foundation model (scFM) embeddings against baseline models to assess whether these contextualized representations enhance perturbation effect prediction. Our results show that scFM embeddings offer limited improvement over simple baseline models in the zero-shot setting, particularly under distribution shift. Overall, this study provides a systematic evaluation of zero-shot scFM embeddings for perturbation effect prediction, highlighting the challenges of this task and the limitations of current-generation scFMs. Our findings underscore the need for specialized models and high-quality datasets that capture a broader range of cellular states.",
+    res: [["Proceedings page", "https://proceedings.mlr.press/v267/wenteler25a.html", "PMLR 267"], ["bioRxiv preprint", "https://doi.org/10.1101/2024.10.02.616248", "2024"], ["Code", "https://github.com/aaronwtr/PertEval", "GitHub"]],
+    bib: "@inproceedings{wenteler2025perteval,\n  title     = {{PertEval-scFM}: Benchmarking Single-Cell Foundation Models\n               for Perturbation Effect Prediction},\n  author    = {Wenteler, Aaron and Occhetta, Martina and Branson, Nikhil and\n               Curean, Victor and Huebner, Magdalena and Dee, William and\n               Connell, William and Siu, Pui Chung and Hawkins-Hooker, Alex and\n               Ektefaie, Yasha and Valdez C{\\'o}rdova, C{\\'e}sar Miguel and\n               Gallagher-Syed, Amaya},\n  booktitle = {Proceedings of the 42nd International Conference on Machine Learning},\n  series    = {Proceedings of Machine Learning Research},\n  volume    = {267},\n  pages     = {66633--66677},\n  year      = {2025},\n  publisher = {PMLR}\n}"
+  }
+};
+
+const $ = id => document.getElementById(id);
+const root = document.documentElement;
+
+function copyText(text, btn, el) {
+  const label = btn.dataset.label || btn.textContent;
+  btn.dataset.label = label;
+  const done = msg => { btn.textContent = msg; setTimeout(() => { btn.textContent = label; }, 1800); };
+  const select = () => {
+    const r = document.createRange(); r.selectNodeContents(el);
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    done("Selected, copy it");
+  };
+  try { navigator.clipboard.writeText(text).then(() => done("Copied"), select); } catch (e) { select(); }
+}
+
+/* Theme */
+try { const t = localStorage.getItem("jacky-theme"); if (t) root.dataset.theme = t; } catch (e) {}
+const mq = matchMedia("(prefers-color-scheme: dark)");
+$("theme").addEventListener("click", () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : mq.matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("jacky-theme", root.dataset.theme); } catch (e) {}
+});
+
+/* Copy and cite */
+$("copy-email").addEventListener("click", e => copyText("pui.siu@qmul.ac.uk", e.currentTarget, $("email-text")));
+const dlg = $("cite");
+document.querySelectorAll("[data-cite]").forEach(b => b.addEventListener("click", () => {
+  $("cite-bib").textContent = PUBS[b.dataset.cite].bib;
+  dlg.showModal();
+}));
+$("cite-close").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+$("cite-copy").addEventListener("click", e => copyText($("cite-bib").textContent, e.currentTarget, $("cite-bib")));
+$("d-copy").addEventListener("click", e => copyText($("d-bib").textContent, e.currentTarget, $("d-bib")));
+
+/* Talks and posters filter; a year row hides when none of its items are shown */
+const filterBtns = document.querySelectorAll(".filter button");
+filterBtns.forEach(b => b.addEventListener("click", () => {
+  filterBtns.forEach(x => x.setAttribute("aria-pressed", x === b));
+  const k = b.dataset.kind;
+  document.querySelectorAll(".dense li[data-kind]").forEach(r => { r.hidden = k !== "all" && r.dataset.kind !== k; });
+  document.querySelectorAll(".dense .yr").forEach(y => {
+    let n = y.nextElementSibling, any = false;
+    while (n && n.dataset.kind) { if (!n.hidden) any = true; n = n.nextElementSibling; }
+    y.hidden = !any;
+  });
+}));
+
+/* Publication pages live at #pub-…; every other hash is a section on the home view */
+function renderDetail(p) {
+  $("d-meta").innerHTML = "<span>" + p.meta + "</span><span class=\"chip " + (p.ok ? "ok" : "wip") + "\">" + p.status + "</span>";
+  $("d-title").textContent = p.title;
+  $("d-authors").innerHTML = p.authors;
+  $("d-venue").textContent = p.venue;
+  $("d-actions").innerHTML = p.links.map(([t, u]) => "<a class=\"btn sm\" href=\"" + u + "\">" + t + "</a>").join("");
+  $("d-sum-h").textContent = p.sumLabel || "Summary";
+  $("d-summary").textContent = p.summary;
+  $("d-res-wrap").hidden = !p.res.length;
+  $("d-res").innerHTML = p.res.map(([t, u, n]) => "<li><a href=\"" + u + "\">" + t + "</a><span>" + n + "</span></li>").join("");
+  $("d-bib").textContent = p.bib;
+  document.title = p.title;
+}
+function route() {
+  const h = decodeURIComponent(location.hash.slice(1));
+  const home = $("home"), detail = $("detail");
+  if (PUBS[h]) {
+    renderDetail(PUBS[h]);
+    home.hidden = true; detail.hidden = false;
+    window.scrollTo(0, 0);
+    return;
+  }
+  const wasDetail = !detail.hidden;
+  detail.hidden = true; home.hidden = false;
+  document.title = "Jacky Siu Pui Chung";
+  if (wasDetail) {
+    const t = h && document.getElementById(h);
+    t ? t.scrollIntoView() : window.scrollTo(0, 0);
+  }
+}
+addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
